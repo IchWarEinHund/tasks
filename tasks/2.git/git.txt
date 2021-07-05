@@ -1,0 +1,17 @@
+GIT
+
+1.
+  #копируем репозиторий на локальную машину
+  git clone git@example.com:example/test.git
+  #загружаем последнюю версию проекта и обновляем свою на локальной машине
+  git pull
+  #переходим на ветку dev
+  git checkout dev
+  #добавляем в корень файл Readme.md
+  git add Readme.md
+  #добавляем коментарий и фиксируем изменения ### May be in future
+  git commit -m "May be in future"
+  #обновляем репозиторий с измениями
+  git push
+  #проверяем изменения
+  git status

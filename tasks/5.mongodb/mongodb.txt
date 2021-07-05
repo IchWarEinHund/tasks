@@ -1,0 +1,32 @@
+posts - Записи -
+{
+  "properties": {
+    "_id": { "bsonType": "objectId" },
+    "title": { "bsonType": "string" },
+    "content": { "bsonType": "string" },
+    "author": { "bsonType": "string" },
+    "like": { "bsonType": "int" },
+    "dislike": { "bsonType": "int" }
+  }
+}
+
+
+
+1.Выведите 5 записей из коллекции posts пропустив первые 5
+
+db.users.find().skip(5).limit(5)
+
+
+2.Выведите все записи у которых like больше 100
+
+db.posts.find({"like": {$gt:100})
+
+
+3.Добавьте новую запись в коллекцию posts
+
+db.posts.insert({"title": "new post", "content": "some contents, "author": "oleg olegov"} )
+
+
+4.Выведите список авторов и их общее количество like
+
+db.posts.aggregate( [ {$group :{ _id : "author", total_likes: { $sum : "$like" }}} ] )

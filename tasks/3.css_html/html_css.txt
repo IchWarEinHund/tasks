@@ -1,0 +1,43 @@
+CSS, HTML
+
+
+1.
+
+  text-align: center;
+  margin: auto;
+  vertical-align: middle
+  align-items: center;
+
+
+
+
+2.
+
+position: absolute;
+top: 50%;
+left: 50%;
+margin: -150px 0 0 -150px;
+
+
+3.
+
+button {
+  background-color: white;
+}
+
+button:active {
+  background-color: black;
+  border-color: brown;
+  color: white;
+}
+
+button:disabled,
+button[disabled]{
+  border: 13px solid #999999;
+  background-color: #00000;
+  color: #666666;
+}
+
+button, .danger {
+ color: red;
+}

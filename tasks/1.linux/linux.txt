@@ -1,0 +1,61 @@
+Файловая структура
+
+/
+--/var/
+----/www/
+------/html/
+--------/index.html
+--------/404.html
+--------/.htaccess
+----/logs/
+------/access.log
+
+
+1.
+  #выводим список файлов в категории var/www/html/
+  ls -a var/www/html/
+
+2.
+  #ищем все упоминания строки "404" в файле acess.log
+  grep -w '/var/logs/access.log' -e '404'
+
+3.
+  #переходим в директорию
+  cd /var/www/
+  #копируем файл 404.html и даем копии имя 403.html
+  cp 404.html 403.html
+  #заменяем все строки со значением "404" на новое значени "403"
+  sed -i 's/404/403/g' 403.html
+
+4.
+  #даем данному пользователю права на чтение/запись
+  chmod u+rw /var/www/index.html
+  #даем группе права на чтение только
+  chmod g+r /var/www/index.html
+  #всем остальным запрещаем чтение/запись/запуск
+  chmod o-rwx /var/www/index.html
+
+5.
+  #переходим в категорию где будет храниться символическая ссылка
+  cd  /var/www/html/
+  #делаем символическую ссылку на файл acess.log с именем acess_log_link
+  ln -s /var/logs/acess.log acess_log_link
+
+
+6.
+  #выводим список файлов в категории /var/
+  ls -a /var/
+
+7.
+  #переходим в категорию
+  cd var/www/html/
+  #создаем файл
+  touch 505.html
+  #добавляем в файл данные
+  cat > var/www/html/505.html <<EOF
+  <html>
+    <head>
+        <title>503</title>
+    </head>
+  </html>
+  EOF
